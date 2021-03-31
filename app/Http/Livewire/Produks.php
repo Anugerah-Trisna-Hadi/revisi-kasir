@@ -41,6 +41,7 @@ class Produks extends Component
                             'harga' => $value->harga,
                             'jumlah' => $this->jb[$value->id],
                             'total' => $value->harga * $this->jb[$value->id],
+                            'created_at' => date("Y-m-d h:i:s")
                         ]
                     );
                 }
@@ -59,7 +60,9 @@ class Produks extends Component
     {
         Transaction::insert([
             'total_harga' => $this->tharga,
-            'total_bayar' => $this->total_bayar
+            'total_bayar' => $this->total_bayar,
+            'created_at' => date("Y-m-d h:i:s"),
+
         ]);
 
         // fungsi untuk mengurangi stok
